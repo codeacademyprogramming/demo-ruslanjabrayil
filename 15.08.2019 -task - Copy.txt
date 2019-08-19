@@ -1,0 +1,159 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Greet("Jhon");
+		Wish();
+		Plus(15,16);
+		CountSpace("salam menim adim ruslandir");
+		SumElements(5,7,3,2,9);
+		SwapNumbers(5,6);
+		CalculatePower(6,3);
+		DisplayFibonacci(2);
+		CheckPrime(1);
+		CalculateDigits(1234);
+		Console.WriteLine(FindFactorial(6));
+		
+	}
+	
+	 //Task 1-2.
+    static void Greet(string name)
+     {
+        Console.WriteLine("Welcome dear " + name);
+     }
+    static void Wish()
+    {
+       Console.WriteLine("Have a nice day :)");
+    }
+	//Task 3.
+	static void Plus(int firstNumber, int secondNumber )
+	{
+		int result = firstNumber + secondNumber;
+		Console.WriteLine(firstNumber+" + "+secondNumber+" = "+result);
+	}
+	//Task 4.
+	static void CountSpace(string sentence)
+	{
+		int counter = 0;
+		for(int i = 0; i<sentence.Length; i++)
+		{
+			
+			if(sentence[i] == ' ')
+				counter++;
+		}
+		Console.WriteLine("Number of Space: "+ counter);
+	}
+	//Task 5.
+	static void SumElements(params int[] array)
+	{
+		int sum = 0;
+		foreach(var item in array)
+		{
+			sum += item;
+		}
+		Console.WriteLine("Sum of the elements: "+ sum);
+	}
+	//Task 6.
+	static void SwapNumbers(int firstNumber, int secondNumber)
+	{
+		firstNumber = firstNumber * secondNumber;
+		secondNumber = firstNumber / secondNumber;
+		firstNumber = firstNumber / secondNumber;
+		Console.WriteLine("Swapped Numbers "+firstNumber+" "+ secondNumber);
+	}
+	//Task 7.
+	static void CalculatePower(int number = 10, int power = 3) //number is 10 and power is 3 by default
+	{
+		int result = number;
+		for(int i=1; i<power; i++)
+		{
+			result *= number;
+		}
+		Console.WriteLine("Result: "+result);
+	}
+	
+	//Task 8.
+static void DisplayFibonacci(int n)
+	{	
+		string container = "";
+		int firstSequenceNumber = 0;
+		int secondSequenceNumber = 1;
+		for(int i = 0; i<n/2-1; i++)
+		{
+			firstSequenceNumber = firstSequenceNumber + secondSequenceNumber;
+			secondSequenceNumber = secondSequenceNumber + firstSequenceNumber;
+			container += firstSequenceNumber.ToString(); 
+			container += " "; 
+			container += secondSequenceNumber.ToString(); 
+			container += " "; 
+			
+		}
+		if (n==1)
+		Console.WriteLine("First "+n+" numbers of Fibonacci series are: \n0");
+		else if (n==3)
+		Console.WriteLine("First "+n+" numbers of Fibonacci series are: \n0 1 1");
+		else if(n<=0)
+		Console.WriteLine("Please Enter Positive Integer");
+		else
+		Console.WriteLine("First "+n+" numbers of Fibonacci series are: \n0 1 " +container);
+	}
+	
+	//Task 9.
+	static void CheckPrime (int number)
+	{
+		int counter = 0;
+		for(int i = 1; i<=number; i++)
+		{
+			if(number % i ==0)
+			{
+				counter++;
+			}
+		}
+		
+		if(counter == 2)
+		Console.WriteLine(number + "is a Prime Number");
+		else 
+		Console.WriteLine(number + " is not a Prime Number");
+	}
+	
+	
+	//Task 10.
+	static void CalculateDigits (int number)
+	{
+		int sum = 0;
+		while(number>=1)
+		{
+			sum += number%10;
+			number = (number - number % 10) / 10;
+		}
+		Console.WriteLine("Sum of the digits = "+sum);
+	}
+	//Task 11.
+	static int FindFactorial(int number)
+        {
+            if (number == 1)
+                return 1;
+            else
+                return number * FindFactorial(number - 1);
+        }
+
+	//Task 12.
+}
+
+
+
+
+
+static void DisplayFibonacci(int n)
+	{
+		int firstSequenceNumber = 0;
+		int secondSequenceNumber = 1;
+		for(int i = 0; i<n/2-1; i++)
+		{
+			firstSequenceNumber = firstSequenceNumber + secondSequenceNumber;
+			secondSequenceNumber = secondSequenceNumber + firstSequenceNumber;
+			Console.Write(firstSequenceNumber+" "+secondSequenceNumber+" ");
+		}
+	}
